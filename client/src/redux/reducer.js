@@ -21,6 +21,7 @@ function rootReducer(state = initialState, action) {
     };
   }
   if (action.type === GET_COUNTRY) {
+    console.log(action.payload)
     return {
       ...state,
       Country: action.payload,

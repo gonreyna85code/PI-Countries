@@ -24,7 +24,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       season: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false,
       },
     },

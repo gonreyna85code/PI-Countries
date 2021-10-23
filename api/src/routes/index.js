@@ -23,14 +23,22 @@ router.get("/countries", async (_req, res) => {
 router.get("/countrie/:id", async (req, res) => {
   const id = req.params.id;
   const DBcountry = await Country.findAll();
-  const country = DBcountry.find(e => e.cca3 === id)
-  console.log(country)
-    res.send(country);   
+  const country = DBcountry.find((e) => e.cca3 === id);
+  res.send({
+    cca3: country.cca3,
+    name: country.name.common,
+    capital: country.capital[0],
+    population: country.population,
+    subregion: country.subregion,
+    flags: country.flags[1],
+    continents: country.continents[0],
+    area: country.area,
+  });
 });
 
 router.get("/country", async (req, res) => {
   const name = req.query.name;
-  console.log(name)
+  console.log(name);
   const search = await axios
     .get(`https://restcountries.com/v3/name/${name}`)
     .catch((error) => {
@@ -40,14 +48,15 @@ router.get("/country", async (req, res) => {
 });
 
 router.post("/activity", async (req, res) => {
-  const act = req.body; 
+  const act = req.body;
   if (act.name === "") return res.status(505).send("Debe tener un nombre");
-  await Activity.create(act).catch((error) => {
-    return res.status(500).send(error);
-  });
-  res.send(act);
+  await Activity.create(act);
+  const DBact = await Activity.findAll({
+    where: {name: act.name}
+  });  
+  var current = await Country.findByPk(act.countries);
+  await current.addActivity(DBact[0].id);
+  res.send(DBact);
 });
-
-
 
 module.exports = router;

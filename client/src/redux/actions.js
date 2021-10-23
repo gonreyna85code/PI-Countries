@@ -4,6 +4,7 @@ export const GET_COUNTRY = "GET_COUNTRY";
 
 
 export function getCountries() {
+  console.log('hola')
   return async function (dispatch) {
     try {
       const json = await axios.get("http://localhost:3001/countries");
