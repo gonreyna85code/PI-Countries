@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { getCountry } from "../redux/actions.js";
 import { useDispatch, useSelector } from "react-redux";
+import icon from "../styles/home.png"
 import '../styles/detail.css'
 
 export default function Detail(props) {
@@ -16,7 +17,13 @@ export default function Detail(props) {
   return (
     <div>
       <div className="detail">
-      
+      <div>
+        <a href="/home" className="icon">
+          <div>
+            <img src={icon} width='60px' height='60px' alt="" className="img" />
+          </div>
+        </a>
+      </div>
       
         <h1 className="detail_title">{country.name}</h1>
         <div className="img_container">

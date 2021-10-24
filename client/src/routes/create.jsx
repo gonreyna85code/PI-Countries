@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCountries, postActivity } from "../redux/actions.js";
-
+import icon from "../styles/home.png"
 
 export default function Create() {
   const dispatch = useDispatch();
@@ -17,7 +17,13 @@ export default function Create() {
   console.log(activity);
   return (
     <div className="create">
-    
+    <div>
+        <a href="/home" className="icon">
+          <div>
+            <img src={icon} width='60px' height='60px' alt="" className="img" />
+          </div>
+        </a>
+      </div>
       <h1 className="create_title">Create New Activity</h1>
       <form id="form" className="create_container" onSubmit={submit}>
         <div className="text_box">

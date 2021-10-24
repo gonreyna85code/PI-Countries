@@ -1,6 +1,7 @@
 import {
   GET_COUNTRIES,
   GET_COUNTRY,
+  GET_SEARCH,
   
 } from "./actions.js";
 
@@ -27,6 +28,12 @@ function rootReducer(state = initialState, action) {
       Country: action.payload,
     };
   } 
+  if (action.type === GET_SEARCH) {
+    return {
+      ...state,
+      Filtrados: action.payload,
+    };
+  }
   return state;
 }
 
