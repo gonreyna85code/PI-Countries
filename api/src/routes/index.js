@@ -28,7 +28,9 @@ router.get("/countries", async (_req, res) => {
       })
     );
     }
-    res.send(await Country.findAll());
+    res.send(await Country.findAll({
+      include: Activity
+    }));
 });
 
 router.get("/countrie/:id", async (req, res) => {
@@ -38,6 +40,11 @@ router.get("/countrie/:id", async (req, res) => {
   });
   
   res.send(country);
+});
+
+router.get("/activity", async (req, res) => {
+  const acts = await Activity.findAll();  
+  res.send(acts);
 });
 
 router.get("/country", async (req, res) => {

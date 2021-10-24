@@ -3,6 +3,7 @@ import { getCountries } from "../redux/actions.js";
 import { useDispatch } from "react-redux";
 import Pages from "../components/pages.jsx";
 import Navbar from "../components/navbar.jsx";
+import Filter from "../components/filter.jsx"
 import icon from "../styles/create.png"
 
 
@@ -21,6 +22,9 @@ export default function Home() {
         </a>
         <div>
             <Navbar/>
+        </div>
+        <div>
+            <Filter/>
         </div>
       </div>              
             <div>

@@ -10,9 +10,9 @@ export default function Countries() {
 
 
   const next_Page = () => {
-    if (countries.length <= currentPage + 9) {
+    if (countries.length <= currentPage + 10) {
       setCurrentPage(currentPage);
-    } else setCurrentPage(currentPage + 9);
+    } else setCurrentPage(currentPage + 10);
   };
   const prev_Page = () => {
     if (currentPage < 10) {
@@ -37,7 +37,7 @@ export default function Countries() {
       <div className="cards">
         {list.map((e) => (
           <Link key={e.cca3} to={"/detail/" + e.cca3}>
-            <Card Titulo={e.name.common} Imagen={e.flags} Continent={e.continents} />
+            <Card Titulo={e.name} Imagen={e.flags} Continent={e.continents} />
           </Link>
         ))}
       </div>    
