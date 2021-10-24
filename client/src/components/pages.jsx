@@ -37,7 +37,7 @@ export default function Countries() {
       <div className="cards">
         {list.map((e) => (
           <Link key={e.cca3} to={"/detail/" + e.cca3}>
-            <Card Titulo={e.name.common} Imagen={e.flags[1]} Continent={e.continents} />
+            <Card Titulo={e.name.common} Imagen={e.flags} Continent={e.continents} />
           </Link>
         ))}
       </div>    

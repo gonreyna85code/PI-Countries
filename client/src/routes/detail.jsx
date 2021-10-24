@@ -1,21 +1,16 @@
 import React, { useEffect } from "react";
 import { getCountry } from "../redux/actions.js";
 import { useDispatch, useSelector } from "react-redux";
-
+import '../styles/detail.css'
 
 export default function Detail(props) {
   const id = props.match.params.cca3;
   const country = useSelector((state) => state.Country);
   const dispatch = useDispatch();
-  const img = country.flags;
-  
-  
-  
+  const img = country.flags; 
   useEffect(() => {
     dispatch(getCountry(id));
-  }, [dispatch, id]);
-  
-  
+  }, [dispatch, id]); 
   
   
   return (
@@ -35,9 +30,22 @@ export default function Detail(props) {
           <li>Subregion: {country.subregion}</li>          
           <li>Continents: {country.continents}</li>
         </div>
+        <h4>Activities:</h4>
+        <div>{country.activities?.map((activity => 
+          <div key={activity.name}>
+          <h5>{activity.name}</h5>          
+          <li>Duration:&nbsp;{activity.duration}&nbsp;hours</li>
+          <li className="rating">Dificulty:&nbsp;{activity.dificulty}</li>  
+          <li>Season:&nbsp;{activity.season}</li>
+          </div>
+          ))}
+          
+          
+        </div>
       </div>
         
     
     </div>
   );
 }
+ 

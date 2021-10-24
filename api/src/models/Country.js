@@ -12,15 +12,15 @@ module.exports = (sequelize) => {
         primaryKey: true,
       },
       name: {
-        type: DataTypes.JSONB,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       flags: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.JSONB,
         allowNull: false,
       },
       capital: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: true,
       },
       subregion: {
@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       continents: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false,
       },
     },
