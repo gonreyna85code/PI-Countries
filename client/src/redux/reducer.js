@@ -86,7 +86,7 @@ function rootReducer(state = initialState, action) {
   if (action.type === GET_BY_CON) {
     return {
       ...state,
-      Filtrados: [...state.Filtrados].filter((d) =>
+      Filtrados: [...state.Countries].filter((d) =>
       d.continents.includes(action.payload)
     ),
     };

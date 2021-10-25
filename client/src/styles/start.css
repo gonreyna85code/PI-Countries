@@ -1,0 +1,29 @@
+.start {
+    background-image: url("./landing.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    padding-bottom: 100%;
+    overflow: hidden;
+    scroll-behavior: hidden;
+   
+  }
+  .button {
+    border-radius: 7px;
+    position: absolute;
+    color: black;
+    top: 60%;
+    left: 23%;
+    background-color:grey;
+    font-size:35px;
+  }
+  .title{
+      color: silver;
+      font-size: 37px;
+      position: absolute;
+      top: 13%;
+    left: 7%;
+  
+  }

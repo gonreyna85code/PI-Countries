@@ -30,8 +30,8 @@ export default function Filter() {
     dispatch(getActs());
   }, [dispatch]);
   return (
-    <div>
-      <select className="filtros" onChange={change} defaultValue="">
+    <div className="filtros">
+      <select className="filtro" onChange={change} defaultValue="">
         <option key="0" value="" disabled hidden>
           &nbsp;&nbsp;CONTINENT:
         </option>
@@ -44,7 +44,7 @@ export default function Filter() {
           </option>
         ))}
       </select>
-      <select className="filtros" onChange={change2} defaultValue="">
+      <select className="filtro" onChange={change2} defaultValue="">
         <option key="0" value="" disabled hidden>
           &nbsp;&nbsp;ACTIVITIES:
         </option>
@@ -58,25 +58,25 @@ export default function Filter() {
         ))}
       </select>
       <button
-        className="filtros"
+        className="filtro"
         type="submit"
         onClick={() => dispatch(getByRev())}
       >
         Invert Order
       </button>
       <button
-        className="filtros"
+        className="filtro"
         type="submit"
         onClick={() => dispatch(getAbc())}
       >
         Order By Name
       </button>
       <button
-        className="filtros"
+        className="filtro"
         type="submit"
         onClick={() => dispatch(getPop())}
       >
-        Order By Rating
+        Order By Population
       </button>
     </div>
   );

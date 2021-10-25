@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import { getCountry } from "../redux/actions.js";
 import { useDispatch, useSelector } from "react-redux";
-import icon from "../styles/home.png"
+import { RatingView } from 'react-simple-star-rating'
+import { Link } from "react-router-dom";
+import icon from "../styles/home.png";
 import '../styles/detail.css'
+
 
 export default function Detail(props) {
   const id = props.match.params.cca3;
@@ -18,11 +21,11 @@ export default function Detail(props) {
     <div>
       <div className="detail">
       <div>
-        <a href="/home" className="icon">
-          <div>
+        
+          <Link to="/home">
             <img src={icon} width='60px' height='60px' alt="" className="img" />
-          </div>
-        </a>
+          </Link>
+        
       </div>
       
         <h1 className="detail_title">{country.name}</h1>
@@ -42,7 +45,7 @@ export default function Detail(props) {
           <div key={activity.name}>
           <h5>{activity.name}</h5>          
           <li>Duration:&nbsp;{activity.duration}&nbsp;hours</li>
-          <li className="rating">Dificulty:&nbsp;{activity.dificulty}</li>  
+          <li className="rating">Dificulty:&nbsp;<RatingView ratingValue={activity.dificulty} /* RatingView Props */ /></li>  
           <li>Season:&nbsp;{activity.season}</li>
           </div>
           ))}

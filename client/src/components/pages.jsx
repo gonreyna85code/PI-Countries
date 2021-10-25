@@ -10,37 +10,30 @@ export default function Countries() {
 
 
   const next_Page = () => {
-    if (countries.length <= currentPage + 10) {
+    if (countries.length <= currentPage + 8) {
       setCurrentPage(currentPage);
-    } else setCurrentPage(currentPage + 10);
+    } else setCurrentPage(currentPage + 8);
   };
   const prev_Page = () => {
-    if (currentPage < 10) {
+    if (currentPage < 9) {
       setCurrentPage(0);
     } else {
-      setCurrentPage(currentPage - 9);
+      setCurrentPage(currentPage - 8);
     }
   };
   const first_Page = () => {
     setCurrentPage(0);
   };
   const last_Page = () => {
-    setCurrentPage(countries.length - 9);
+    setCurrentPage(countries.length - 8);
   };
   useEffect(() => {
     first_Page();
   }, [countries]);
 
-  const list = countries.slice(currentPage, currentPage + 9);
+  const list = countries.slice(currentPage, currentPage + 8);
   return (
-    <div>
-      <div className="cards">
-        {list.map((e) => (
-          <Link key={e.cca3} to={"/detail/" + e.cca3}>
-            <Card Titulo={e.name} Imagen={e.flags} Continent={e.continents} />
-          </Link>
-        ))}
-      </div>    
+    <div>          
       <div className='pager_container'> 
       <button className="pager" onClick={first_Page}>
         First Page
@@ -58,6 +51,13 @@ export default function Countries() {
         Last Page
       </button>
       </div> 
+      <div className="cards">
+        {list.map((e) => (
+          <Link key={e.cca3} to={"/detail/" + e.cca3}>
+            <Card Titulo={e.name} Imagen={e.flags} Continent={e.continents} />
+          </Link>
+        ))}  
+      </div>
     </div>
   );
 }

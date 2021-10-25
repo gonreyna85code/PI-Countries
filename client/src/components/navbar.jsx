@@ -5,15 +5,14 @@ import { getSearch } from "../redux/actions";
 export default function Navbar() {
   const dispatch = useDispatch();
   const [input, setinput] = useState('')
-  function submit(e) {
-    setinput(e.target.value);   
+  function submit() {   
     dispatch(getSearch(input));
   }
   return (
     <nav>
       <div className="navbar">
         <input type="search" onKeyUp={e => (e.key === 'Enter') ? submit(e): null} onChange={e => setinput(e.target.value)} id="header-search" placeholder="  Search Country" /> 
-        <input type="submit" value="Search" onClick={submit}/>       
+        <input type="submit" value="Search" onClick={() => submit()}/>       
       </div>
       
     </nav>
