@@ -1,11 +1,10 @@
 .detail {
-    background-image: url("./home-back.jpg");
+    background-image: url("./back2.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-color: #464646;
-    padding-bottom: 100%;
-    overflow: hidden;
-    scroll-behavior: hidden;
+    padding-bottom: 50px;   
+    scroll-behavior: smooth;
 }

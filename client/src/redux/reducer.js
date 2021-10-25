@@ -94,7 +94,7 @@ function rootReducer(state = initialState, action) {
   if (action.type === GET_BY_ACT) {
     return {
       ...state,
-      Filtrados: [...state.Filtrados].filter((country) =>
+      Filtrados: [...state.Countries].filter((country) =>
       country.activities.find((e) => e.name === action.payload)),
     };
   }

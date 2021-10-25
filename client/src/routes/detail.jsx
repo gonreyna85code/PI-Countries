@@ -20,25 +20,29 @@ export default function Detail(props) {
   return (
     <div>
       <div className="detail">
-      <div>
-        
+      <div className="home-ico-img">
           <Link to="/home">
-            <img src={icon} width='60px' height='60px' alt="" className="img" />
-          </Link>
-        
+            <img src={icon} width='40px' height='40px' alt=""  />
+          </Link>  
+          </div>  
+      <div className="head">       
+      <h1 className="detail-title">{country.name}</h1>
+           
       </div>
       
-        <h1 className="detail_title">{country.name}</h1>
-        <div className="img_container">
-          <img className="det_img" src={img} width={400} alt="" />
-        </div>
-        <div className="foot">
+      <div className='full-info'>        
+        
+        <div className="info">
           <li>Capital: {country.capital}</li>
           <li>Name Code: {country.cca3}</li>          
           <li>Population: {country.population}</li>          
           <li>Area: {country.area}</li>
           <li>Subregion: {country.subregion}</li>          
           <li>Continents: {country.continents}</li>
+        </div>
+        <div className="img-container">
+          <img className="det_img" src={img} width={400} alt="" />
+        </div>
         </div>
         <h4>Activities:</h4>
         <div>{country.activities?.map((activity => 

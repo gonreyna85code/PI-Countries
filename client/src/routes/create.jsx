@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getCountries, postActivity } from "../redux/actions.js";
+import { useHistory } from "react-router-dom";
+import { getCountries, postActivity, getActs } from "../redux/actions.js";
 import { Link } from "react-router-dom";
 import icon from "../styles/home.png";
 import '../styles/create.css'
 
 export default function Create() {
+  let history = useHistory();
   const dispatch = useDispatch();
   const [activity, setActivity] = useState({ country: [] });
   const countries = useSelector((state) => state.Countries);
   function submit(e) {
     e.preventDefault();
-    dispatch(postActivity(activity));
+    dispatch(postActivity(activity));  
+    dispatch(getActs())
+    history.push("/home");  
   }
   useEffect(() => {
     dispatch(getCountries());
@@ -64,7 +68,6 @@ export default function Create() {
             ))}
           </select>
         </div>
-
         <div>
           <label>Dificulty:&nbsp;</label>
           <input
@@ -95,7 +98,6 @@ export default function Create() {
             }
           />
         </div>
-
         <div>
           <input type="submit" value="Create" className="create_button" />
         </div>

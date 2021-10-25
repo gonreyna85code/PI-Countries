@@ -9,12 +9,12 @@ export default function Navbar() {
     dispatch(getSearch(input));
   }
   return (
-    <nav>
-      <div className="navbar">
-        <input type="search" onKeyUp={e => (e.key === 'Enter') ? submit(e): null} onChange={e => setinput(e.target.value)} id="header-search" placeholder="  Search Country" /> 
-        <input type="submit" value="Search" onClick={() => submit()}/>       
-      </div>
-      
-    </nav>
+    
+      <div className="bar">
+        <input className="navbar" type="search" onKeyUp={e => (e.key === 'Enter') ? submit(e): null} onChange={e => setinput(e.target.value)} id="header-search" placeholder="  Search Country" /> 
+        &nbsp;
+        <input className="navbar"type="submit" value="Search" onClick={() => submit()}/>       
+      </div>      
+    
   );
 }

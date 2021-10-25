@@ -53,7 +53,7 @@ export default function Countries() {
       </div> 
       <div className="cards">
         {list.map((e) => (
-          <Link key={e.cca3} to={"/detail/" + e.cca3}>
+          <Link key={e.cca3} to={"/detail/" + e.cca3} style={{ textDecoration: 'none' }}>
             <Card Titulo={e.name} Imagen={e.flags} Continent={e.continents} />
           </Link>
         ))}  

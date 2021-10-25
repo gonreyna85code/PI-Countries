@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Pages from "../components/pages.jsx";
 import Navbar from "../components/navbar.jsx";
 import Filter from "../components/filter.jsx"
-import icon from "../styles/create.png"
+
 import "../styles/home.css";
 
   
@@ -15,20 +15,20 @@ export default function Home() {
         dispatch(getCountries());
     }, [dispatch])
     return (
-        <div  className='home'>   
-        <div className='navbar'>
-        
-          <Link to={"/create/"}>
-            <img src={icon} width='60px' height='60px' alt="" className="img" />
-          </Link>
+        <div  className='home'>  
+        <div className='navigation'>
+        <Navbar/>
+        <div className='create-container'>                  
+          <Link to={"/create/"} style={{ textDecoration: 'none' }}> 
+            <h2 className='create-title'>★ New Activity</h2>
+          </Link> 
+          </div>      
+        </div> 
           
-        <Navbar/>   
-        </div>  
         <div>
             <Filter/>
         </div>
-        <br />
-                    
+                          
             <div>
                 <Pages/>
             </div>
