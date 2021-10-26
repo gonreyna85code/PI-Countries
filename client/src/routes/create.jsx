@@ -14,7 +14,8 @@ export default function Create() {
   function submit(e) {
     e.preventDefault();
     dispatch(postActivity(activity));  
-    dispatch(getActs())
+    dispatch(getActs());
+    dispatch(getCountries());
     history.push("/home");  
   }
   useEffect(() => {

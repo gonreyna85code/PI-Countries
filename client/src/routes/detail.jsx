@@ -44,17 +44,20 @@ export default function Detail(props) {
           <img className="det_img" src={img} width={400} alt="" />
         </div>
         </div>
-        <h4>Activities:</h4>
-        <div>{country.activities?.map((activity => 
-          <div key={activity.name}>
-          <h5>{activity.name}</h5>          
+        <div>
+        <h2 className="activity">Activities:</h2>
+        
+        <div className='activities'>{country.activities?.map((activity => 
+        <div className='act' key={activity.name}>
+          <div >
+          <h4 className='act-title'>{activity.name}</h4>          
           <li>Duration:&nbsp;{activity.duration}&nbsp;hours</li>
           <li className="rating">Dificulty:&nbsp;<RatingView ratingValue={activity.dificulty} /* RatingView Props */ /></li>  
           <li>Season:&nbsp;{activity.season}</li>
           </div>
-          ))}
-          
-          
+          </div>
+          ))}        
+        </div>
         </div>
       </div>
         
