@@ -22,7 +22,7 @@
   flex-direction: column;
   margin-bottom: 25px;
   margin-top: 20px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(3px);
 }
 .cards {
   display: flex;
@@ -37,7 +37,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .pager_container {
   display: flex;
@@ -102,11 +102,11 @@ input[type="search" i] {
     font-size: large;
 }
 select.filtro {
-  background-color: #303030;
+  background-color: #4c4040;
   border-radius: 15px;
   color: #bfbfbf;
   text-shadow: 0 1px 0 rgb(58 50 50);
-  height: 50px;
+  height: 40px;
   border-width: 2px;
   border-style: outset;
   border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
@@ -117,11 +117,11 @@ select:not {
   background-color: transparent;
 }
 button.filtro {
-  background-color: #303030;
+  background-color: #4c4040;
   border-radius: 15px;
   color: #bfbfbf;
   text-shadow: 0 1px 0 rgb(58 50 50);
-  height: 50px;  
+  height: 40px;  
 }
 .navigation{
   display: flex;
@@ -135,7 +135,7 @@ button.filtro {
 
 }
 .pager{
-  background-color: #303030;
+  background-color: #6c3a13;
   border-radius: 15px;
   color: #bfbfbf;
   text-shadow: 0 1px 0 rgb(58 50 50);
