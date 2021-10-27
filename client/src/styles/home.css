@@ -82,7 +82,7 @@ input[type="search" i] {
   box-sizing: border-box;
   padding: 1px 2px;
 }
-.create-container {
+.nav-container {
   display: flex;
   color: white;
   border: black solid 1px;
@@ -96,7 +96,7 @@ input[type="search" i] {
   margin-bottom: 10px;
   
 }
-.create-title {
+.nav-title {
   color: #302f2f;
     margin-bottom: 16px;
     font-size: large;

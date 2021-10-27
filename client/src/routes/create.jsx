@@ -9,7 +9,9 @@ import '../styles/create.css'
 export default function Create() {
   let history = useHistory();
   const dispatch = useDispatch();
-  const [activity, setActivity] = useState({ country: [] });
+  const [activity, setActivity] = useState({ country: [],
+    season:'',
+   });
   const countries = useSelector((state) => state.Countries);
   function submit(e) {
     e.preventDefault();
@@ -24,20 +26,20 @@ export default function Create() {
   console.log(activity);
   return (
     <div className="create">
-      <div>
-        <Link to="/home">
-          <img src={icon} width="60px" height="60px" alt="" className="img" />
-        </Link>
-      </div>
-      <h1 className="create_title">Create New Activity</h1>
-      <form id="form" className="create_container" onSubmit={submit}>
+      <div className="home-ico-img">
+          <Link to="/home">
+            <img src={icon} width='40px' height='40px' alt=""  />
+          </Link>  
+          </div>  
+      <h1 className="create-title">Create New Activity</h1>
+      <form id="form" className="create-container" onSubmit={submit}>
         <div className="text_box">
           <div className="field">
-            <label>Name:&nbsp;</label>
+            <label>Name:&nbsp;&nbsp;</label>
             <input
               type="text"
               id="name"
-              name="name"
+              className='name-input'
               onChange={(e) =>
                 setActivity({
                   ...activity,
@@ -48,13 +50,68 @@ export default function Create() {
               }
             />
           </div>
+          <br />
+          <div>
+          <label>Duration:&nbsp;&nbsp;</label>
+          <input
+            className='text-input'
+            type="number"
+            onChange={(e) =>
+              setActivity({ ...activity, duration: e.target.value })
+            }
+          />&nbsp;&nbsp;hours.
         </div>
+        <br />
         <div>
-          <label>Country:&nbsp;</label>
+          <label>Dificulty:&nbsp;&nbsp;</label>
+          <input
+           className='text-input'
+            type="number"
+            min="1"
+            max="5"
+            onChange={(e) =>
+              setActivity({ ...activity, dificulty: e.target.value })
+            }
+          />&nbsp;&nbsp;1 to 5.
+        </div>
+        <br />
+        <div className='selbox'>
+          <label>Season:&nbsp;&nbsp;</label>
           <select
+          className="countries"
+          id="season"
+            type="text"
+            multiple
+            onClick={(e) =>
+              setActivity({
+                ...activity,
+                season: activity.season.concat(e.target.value + ', '),
+              })
+            }
+          >
+            <option key='1' value='Summer'>
+                Summer
+              </option>
+              <option key='2' value='Winter'>
+                Winter
+              </option>
+              <option key='3' value='Fall'>
+                Fall
+              </option>
+              <option key='4' value='Spring'>
+                Spring
+              </option>
+            </select>
+        </div>
+        </div>
+        <br />
+        <div className='selbox'>
+          <label>&nbsp;&nbsp;&nbsp;&nbsp;Country:&nbsp;&nbsp;</label>
+          <select
+          className="countries"
             id="country"
             multiple
-            size="6"
+            size="8"
             onClick={(e) =>
               setActivity({
                 ...activity,
@@ -69,40 +126,15 @@ export default function Create() {
             ))}
           </select>
         </div>
-        <div>
-          <label>Dificulty:&nbsp;</label>
-          <input
-            type="number"
-            onChange={(e) =>
-              setActivity({ ...activity, dificulty: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label>Duration:&nbsp;</label>
-          <input
-            type="number"
-            onChange={(e) =>
-              setActivity({ ...activity, duration: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label>Season:&nbsp;</label>
-          <input
-            type="text"
-            onChange={(e) =>
-              setActivity({
-                ...activity,
-                season: e.target.value,
-              })
-            }
-          />
-        </div>
-        <div>
-          <input type="submit" value="Create" className="create_button" />
-        </div>
+        <br />
+        
+        
+        
       </form>
+      <div>
+          <input type="submit" value="Create" className="subm-create" onClick={(e) => submit(e)} />
+        </div>
+      
     </div>
   );
 }
