@@ -6,9 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from "./redux/store.js"
 import { BrowserRouter } from "react-router-dom";
+import 'pace-js';
+import 'pace-js/themes/silver/pace-theme-minimal.css';
 
 ReactDOM.render(
-  <Provider  store={store}>
+  <Provider  store={store} className='App Fade'>
     <BrowserRouter>
     <React.StrictMode>
       <App />

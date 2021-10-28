@@ -5,9 +5,10 @@
     background-attachment: fixed;
     background-size: cover;
     background-color: #464646;
-    Height:100vh;       
+       
     scroll-behavior: smooth;
-    padding-bottom: 11%;
+    padding-bottom: 12%; 
+    
 }
 .full-info{
     display: flex;

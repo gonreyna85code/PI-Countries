@@ -35,8 +35,8 @@ export default function Detail(props) {
         <div className="info">
           <li>Capital: {country.capital}</li>
           <li>Name Code: {country.cca3}</li>          
-          <li>Population: {country.population}</li>          
-          <li>Area: {country.area}</li>
+          <li>Population: {country.population}&nbsp;p.</li>          
+          <li>Area: {country.area}&nbsp;kms.</li>
           <li>Subregion: {country.subregion}</li>          
           <li>Continents: {country.continents}</li>
         </div>
