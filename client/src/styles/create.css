@@ -1,5 +1,5 @@
 .create {
-    background-image: url("./back2.jpg");
+    background-image: url("./back1.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -32,7 +32,7 @@
     flex-wrap: wrap;
     justify-content: center;
     font-weight: bold;
-    color: #9b9b9b;
+    color: #242424;
 }
 .selbox{
     display: flex;
@@ -85,4 +85,7 @@ input.name-input{
   text-shadow: 0 1px 0 rgb(58 50 50);
   height: 40px;
     width: 75px;
+}
+.form-button{
+    display: flex;
 }

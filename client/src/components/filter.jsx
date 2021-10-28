@@ -31,7 +31,7 @@ export default function Filter() {
   }, [dispatch]);
   return (
     <div className="filtros">
-      <select className="filtro" onChange={change} defaultValue="">
+      <select className="filtro" onClick={change} defaultValue="">
         <option key="0" value="" disabled hidden>
           &nbsp;&nbsp;CONTINENT:
         </option>
@@ -43,7 +43,7 @@ export default function Filter() {
             {e}
           </option>
         ))}
-      </select>
+      </select>      
       <select className="filtro" onChange={change2} defaultValue="">
         <option key="0" value="" disabled hidden>
           &nbsp;&nbsp;ACTIVITIES:

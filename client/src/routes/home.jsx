@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getCountries } from "../redux/actions.js";
+import { getCountries, getActs } from "../redux/actions.js";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Pages from "../components/pages.jsx";
@@ -12,6 +12,9 @@ export default function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCountries());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(getActs());
   }, [dispatch]);
   return (
     <div className="home">

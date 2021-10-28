@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getCountries, postActivity, getActs } from "../redux/actions.js";
+import { getCountries, postActivity } from "../redux/actions.js";
 import { Link } from "react-router-dom";
 import icon from "../styles/home.png";
-import '../styles/create.css'
+import "../styles/create.css";
 
 export default function Create() {
   let history = useHistory();
   const dispatch = useDispatch();
-  const [activity, setActivity] = useState({ country: [],
-    season:'',
-   });
+  const [activity, setActivity] = useState({ country: [], season: "" });
   const countries = useSelector((state) => state.Countries);
   function submit(e) {
     e.preventDefault();
-    dispatch(postActivity(activity));  
-    dispatch(getActs());
+    dispatch(postActivity(activity));
     dispatch(getCountries());
-    history.push("/home");  
+    history.push("/home");
   }
   useEffect(() => {
     dispatch(getCountries());
@@ -27,19 +24,21 @@ export default function Create() {
   return (
     <div className="create">
       <div className="home-ico-img">
-          <Link to="/home">
-            <img src={icon} width='40px' height='40px' alt=""  />
-          </Link>  
-          </div>  
+        <Link to="/home">
+          <img src={icon} width="40px" height="40px" alt="" />
+        </Link>
+      </div>
       <h1 className="create-title">Create New Activity</h1>
-      <form id="form" className="create-container" onSubmit={submit}>
+      <form id="form" onSubmit={submit}>
+        <div className="create-container">
         <div className="text_box">
           <div className="field">
             <label>Name:&nbsp;&nbsp;</label>
             <input
+            required
               type="text"
               id="name"
-              className='name-input'
+              className="name-input"
               onChange={(e) =>
                 setActivity({
                   ...activity,
@@ -52,63 +51,70 @@ export default function Create() {
           </div>
           <br />
           <div>
-          <label>Duration:&nbsp;&nbsp;</label>
-          <input
-            className='text-input'
-            type="number"
-            onChange={(e) =>
-              setActivity({ ...activity, duration: e.target.value })
-            }
-          />&nbsp;&nbsp;hours.
-        </div>
-        <br />
-        <div>
-          <label>Dificulty:&nbsp;&nbsp;</label>
-          <input
-           className='text-input'
-            type="number"
-            min="1"
-            max="5"
-            onChange={(e) =>
-              setActivity({ ...activity, dificulty: e.target.value })
-            }
-          />&nbsp;&nbsp;1 to 5.
-        </div>
-        <br />
-        <div className='selbox'>
-          <label>Season:&nbsp;&nbsp;</label>
-          <select
-          className="countries"
-          id="season"
-            type="text"
-            multiple
-            onClick={(e) =>
-              setActivity({
-                ...activity,
-                season: activity.season.concat(e.target.value + ', '),
-              })
-            }
-          >
-            <option key='1' value='Summer'>
+            <label>Duration:&nbsp;&nbsp;</label>
+            <input
+            required
+              min="1"
+              className="text-input"
+              type="number"
+              onChange={(e) =>
+                setActivity({ ...activity, duration: e.target.value })
+              }
+            />
+            &nbsp;&nbsp;hours.
+          </div>
+          <br />
+          <div>
+            <label>Dificulty:&nbsp;&nbsp;</label>
+            <input
+            required
+              className="text-input"
+              type="number"
+              min="1"
+              max="5"
+              onChange={(e) =>
+                setActivity({ ...activity, dificulty: e.target.value })
+              }
+            />
+            &nbsp;&nbsp;1 to 5.
+          </div>
+          <br />
+          <div className="selbox">
+            <label>Season:&nbsp;&nbsp;</label>
+            <select
+            required
+              className="countries"
+              id="season"
+              type="text"
+              multiple
+              onClick={(e) =>
+                setActivity({
+                  ...activity,
+                  season: activity.season.concat(e.target.value + ", "),
+                })
+              }
+            >
+              <option key="1" value="Summer">
                 Summer
               </option>
-              <option key='2' value='Winter'>
+              <option key="2" value="Winter">
                 Winter
               </option>
-              <option key='3' value='Fall'>
+              <option key="3" value="Fall">
                 Fall
               </option>
-              <option key='4' value='Spring'>
+              <option key="4" value="Spring">
                 Spring
               </option>
             </select>
-        </div>
+          </div>
         </div>
         <br />
-        <div className='selbox'>
+        <div className="selbox">
           <label>&nbsp;&nbsp;&nbsp;&nbsp;Country:&nbsp;&nbsp;</label>
           <select
-          className="countries"
+          required
+            className="countries"
             id="country"
             multiple
             size="8"
@@ -126,14 +132,16 @@ export default function Create() {
             ))}
           </select>
         </div>
-        <br />
-        
-        
-        
-      </form>
-      <div>
-          <input type="submit" value="Create" className="subm-create" onClick={(e) => submit(e)} />
         </div>
+        <br />
+        <div clasname="form-button">
+        <input
+          type="submit"
+          value="Create"
+          className="subm-create"
+        />
+      </div>
+      </form>
       
     </div>
   );
