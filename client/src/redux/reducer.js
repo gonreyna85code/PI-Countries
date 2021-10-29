@@ -53,11 +53,11 @@ function rootReducer(state = initialState, action) {
     return {
       ...state,
       Filtrados: [...state.Filtrados].sort(function (a, b) {
-        if (a.population < b.population) {
-          return -1;
-        }
-        if (a.population > b.population) {
+        if (Number(a.population) < Number(b.population)) {
           return 1;
+        }
+        if (Number(a.population) > Number(b.population)) {
+          return -1;
         }
         return 0;
       }),
