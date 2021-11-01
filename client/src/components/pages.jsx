@@ -52,7 +52,7 @@ export default function Countries() {
       </button>
       </div> 
       <div className="cards">
-        {list.map((e) => (
+        {list.length === 0 ? (<div><h4>Oops!, no results</h4></div>) : list.map((e) => (
           <Link key={e.cca3} to={"/detail/" + e.cca3} style={{ textDecoration: 'none' }}>
             <Card Titulo={e.name} Imagen={e.flags} Continent={e.continents} />
           </Link>
