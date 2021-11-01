@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 export default function Countries() {
-  const countries = useSelector((state) => state.Filtrados);
+  const countries = useSelector((state) => state.Filtrados2);
   const [currentPage, setCurrentPage] = useState(0);
 
 

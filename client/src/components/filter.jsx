@@ -17,11 +17,11 @@ export default function Filter() {
   const acts = useSelector((state) => state.Acts);
   const change = (e) =>
     e.target.value === ""
-      ? dispatch(getCountries())
+      ? dispatch(getByCon(''))
       : dispatch(getByCon(e.target.value));
   const change2 = (e) =>
     e.target.value === ""
-      ? dispatch(getCountries())
+      ? dispatch(getByAct(''))
       : dispatch(getByAct(e.target.value));
   useEffect(() => {
     dispatch(getConts());
@@ -31,7 +31,7 @@ export default function Filter() {
   }, [dispatch]);
   return (
     <div className="filtros">
-      <select className="filtro" onClick={change} defaultValue="">
+      <select className="filtro" onChange={change} defaultValue="">
         <option key="0" value="" disabled hidden>
           &nbsp;&nbsp;CONTINENT:
         </option>

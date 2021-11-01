@@ -28,6 +28,6 @@ export default function Home() {
       </div>      
         <Filter />      
         <Pages />    
-    </div>
+    </div>  
   );
 }

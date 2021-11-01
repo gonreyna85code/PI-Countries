@@ -20,11 +20,18 @@ export default function Detail(props) {
   return (
     <div>
       <div className="detail">
+        
+      <div className="nav-container2">
+          <Link to={"/create/"} style={{ textDecoration: "none" }}>
+            <h2 className="nav-title2">★ New Activity</h2>
+          </Link>
+        </div>
       <div className="home-ico-img">
           <Link to="/home">
             <img src={icon} width='40px' height='40px' alt=""  />
           </Link>  
           </div>  
+          
       <div className="head">       
       <h1 className="detail-title">{country.name}</h1>
            
