@@ -19,8 +19,7 @@ export default function Detail(props) {
   
   return (
     <div>
-      <div className="detail">
-        
+      <div className="detail">        
       <div className="nav-container2">
           <Link to={"/create/"} style={{ textDecoration: "none" }}>
             <h2 className="nav-title2">★ New Activity</h2>
@@ -30,15 +29,11 @@ export default function Detail(props) {
           <Link to="/home">
             <img src={icon} width='40px' height='40px' alt=""  />
           </Link>  
-          </div>  
-          
+          </div>            
       <div className="head">       
-      <h1 className="detail-title">{country.name}</h1>
-           
-      </div>
-      
-      <div className='full-info'>        
-        
+      <h1 className="detail-title">{country.name}</h1>           
+      </div>      
+      <div className='full-info'>     
         <div className="info">
           <li>Capital: {country.capital}</li>
           <li>Name Code: {country.cca3}</li>          
@@ -52,8 +47,7 @@ export default function Detail(props) {
         </div>
         </div>
         <div>
-        <h2 className="activity">Activities:</h2>
-        
+        <h2 className="activity">Activities:</h2>        
         <div className='activities'>{country.activities?.map((activity => 
         <div className='act' key={activity.name}>
           <div >
@@ -66,9 +60,7 @@ export default function Detail(props) {
           ))}        
         </div>
         </div>
-      </div>
-        
-    
+      </div> 
     </div>
   );
 }
