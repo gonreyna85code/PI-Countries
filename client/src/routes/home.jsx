@@ -11,11 +11,9 @@ import "../styles/home.css";
 export default function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCountries());
+    dispatch(getCountries()); dispatch(getActs())
   }, [dispatch]);
-  useEffect(() => {
-    dispatch(getActs());
-  }, [dispatch]);
+  
   return (
     <div className="home">
       <div className="navigation">

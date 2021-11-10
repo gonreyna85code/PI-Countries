@@ -4,7 +4,6 @@ import {
   getByRev,
   getAbc,
   getPop,
-  getCountries,
   getConts,
   getByCon,
   getByAct,

@@ -6,28 +6,8 @@ const { Activity } = require("../db");
 
 const router = Router();
 
-
-router.get("/countries", async (_req, res) => {
-    const DB = await Country.findAll();
-    if(DB.length === 0) {
-      const api = await axios
-      .get(`https://restcountries.com/v3/all`)
-      .catch((error) => {
-        return res.status(500).send(error);
-      });
-      await api.data.map((country) =>
-      Country.create({
-        cca3: country.cca3,
-        name: country.name.common,
-        capital: country.capital?.[0],
-        population: country.population,
-        subregion: country.subregion,
-        flags: country.flags[0],
-        continents: country?.continents?.[0],
-        area: country.area,
-      })
-    );
-    }
+   
+router.get("/countries", async (_req, res) => {     
     res.send(await Country.findAll({
       include: Activity
     }));
@@ -59,14 +39,12 @@ router.get("/country", async (req, res) => {
 
 router.post("/activity", async (req, res) => {
   const act = req.body;
-  console.log(act);
   if (act.name === "") return res.status(505).send("Debe tener un nombre");
   await Activity.create(act);
   const DBact = await Activity.findAll({
     where: { name: act.name },
   });  
   act.country.map(async (country) => {
-    //console.log(country.country);
     var current = await Country.findByPk(country.country);
     current.addActivity(DBact[0].id);});
   res.send(DBact);
